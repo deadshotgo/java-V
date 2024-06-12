@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 public @interface GenerateApiDoc {
     String summary() default "";
     String description() default "";
-    String responseCode() default "201";
+    String responseCode() default "200";
     String responseDescription() default "";
     Class<?> responseClass();
     String mediaType() default "application/json";

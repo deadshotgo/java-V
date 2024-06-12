@@ -3,13 +3,13 @@ version: '3.8'
 services:
   db:
     image: postgres:14-alpine
-    container_name: postgres_p
+    container_name: postgres
     environment:
-      POSTGRES_USER: postgres_p
-      POSTGRES_PASSWORD: password_p
-      POSTGRES_DB: postgres_db_p
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres_db
     volumes:
-      - postgres_p:/var/lib/postgresql/data
+      - postgres_a:/var/lib/postgresql/data
     ports:
       - "5432:5432"
 #  app:
@@ -27,4 +27,4 @@ services:
 #      SPRING_DATASOURCE_PASSWORD: password
 
 volumes:
-  postgres_p:
+  postgres_a:
