@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestUser {
+public class UserDto {
     @NotBlank(message = "Username is mandatory")
     private String username;
 
@@ -15,4 +15,6 @@ public class RequestUser {
 
     @NotBlank(message = "Email is mandatory")
     private String email;
+
+    private String role;
 }

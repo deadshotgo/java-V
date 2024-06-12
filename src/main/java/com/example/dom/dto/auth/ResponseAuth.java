@@ -1,6 +1,6 @@
 package com.example.dom.dto.auth;
 
-import com.example.dom.dto.user.ResponseUser;
+import com.example.dom.models.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
@@ -8,13 +8,13 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseAuth {
     private String token;
-    private ResponseUser responseUser;
+    private User responseUser;
 
     public ResponseAuth(String token) {
         this.token = token;
     }
 
-    public ResponseAuth(String token, ResponseUser user) {
+    public ResponseAuth(String token, User user) {
         this.token = token;
         this.responseUser = user;
     }

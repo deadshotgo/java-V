@@ -2,8 +2,8 @@ package com.example.dom.controller;
 
 import com.example.dom.dto.auth.RequestAuth;
 import com.example.dom.dto.auth.ResponseAuth;
-import com.example.dom.dto.user.RequestUser;
-import com.example.dom.dto.user.ResponseUser;
+import com.example.dom.dto.user.UserDto;
+import com.example.dom.models.User;
 import com.example.dom.exception.UserAlreadyExistException;
 import com.example.dom.service.JwtService;
 import com.example.dom.service.UserService;
@@ -48,8 +48,8 @@ public class AuthController {
 
 
     @PostMapping("/create-user")
-    public ResponseEntity<ResponseAuth> registrationUser(@Valid @RequestBody RequestUser requestUser) throws UserAlreadyExistException {
-        ResponseUser responseUser = userService.createUserHasAuth(requestUser);
+    public ResponseEntity<ResponseAuth> registrationUser(@Valid @RequestBody UserDto requestUser) throws UserAlreadyExistException {
+        User responseUser = userService.createUserHasAuth(requestUser);
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(requestUser.getUsername(), requestUser.getPassword()));
         if (authentication.isAuthenticated()){
             ResponseAuth response = new ResponseAuth(jwtService.generateToken(responseUser.getUsername()), responseUser);

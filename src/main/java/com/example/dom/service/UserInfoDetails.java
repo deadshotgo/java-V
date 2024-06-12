@@ -1,6 +1,6 @@
 package com.example.dom.service;
 
-import com.example.dom.entity.UserEntity;
+import com.example.dom.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
 
 public class UserInfoDetails implements UserDetails {
 
-    private String username;
-    private String password;
-    private List<GrantedAuthority> authorities;
+    private final String username;
+    private final String password;
+    private final List<GrantedAuthority> authorities;
 
-    public UserInfoDetails(UserEntity userInfo) {
+    public UserInfoDetails(User userInfo) {
         username = userInfo.getUsername();
         password = userInfo.getPassword();
         authorities = Arrays.stream(userInfo.getRoles().split(","))

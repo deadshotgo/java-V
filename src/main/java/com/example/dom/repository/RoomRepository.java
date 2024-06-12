@@ -1,7 +1,7 @@
 package com.example.dom.repository;
 
-import com.example.dom.entity.RoomEntity;
+import com.example.dom.models.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RoomRepository extends JpaRepository<RoomEntity, Long> {
+public interface RoomRepository extends JpaRepository<Room, Long> {
 }
